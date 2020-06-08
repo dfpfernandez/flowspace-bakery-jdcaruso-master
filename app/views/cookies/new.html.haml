@@ -10,7 +10,12 @@
 
   .row
     .small-8.columns
+      = label_tag :amount
+
+  .row
+    .small-8.columns
+      = number_field_tag 'cookie[amount]', 1
+
+  .row
+    .small-8.columns
       = f.submit 'Mix and bake', class: 'button'
-
-
-

@@ -1,8 +1,10 @@
 %h3= @oven.name
 
-.cookie-info
-  = render partial: 'cookie_info', locals: { oven: @oven }
+- @oven.cookies.each do |cookie|
+  .cookie-info{ data: { cookie_id: cookie.id } }
+    = render partial: 'cookie_info', locals: { cookie: cookie }
 
 %br
+= button_to "Retrieve Cookie", empty_oven_path(@oven), class: 'empty-oven button tiny hide'
 
 = link_to "Prepare Cookie", new_oven_cookies_path(@oven), class: 'button'
