@@ -1,5 +1,5 @@
 module StoreHelper
   def fillings_text(fillings)
-    fillings.blank? ? 'no filling' : fillings
+    fillings&.strip.blank? ? Cookie::EMPTY_FILLING_TEXT : fillings
   end
 end
