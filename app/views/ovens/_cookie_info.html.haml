@@ -1,8 +1,5 @@
 Cookie in oven:
-- if oven.cookie
-  1 cookie with #{oven.cookie.fillings || "no fillings"}
-  - if oven.cookie.ready?
+- if cookie
+  1 cookie with #{fillings_text(cookie.fillings)}
+  - if cookie.ready?
     (Your Cookie is Ready)
-    = button_to "Retrieve Cookie", empty_oven_path(oven), class: 'button tiny'
-- else
-  None
