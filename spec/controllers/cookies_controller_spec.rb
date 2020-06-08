@@ -79,22 +79,9 @@ describe CookiesController do
       end
 
       context "when a valid oven is supplied" do
-        it "creates a cookie for that oven" do
-          expect {
-            the_request
-          }.to change{Cookie.count}.by(1)
-
-          expect(Cookie.last.storage).to eq(oven)
-        end
-
         it "redirects to the oven" do
           the_request
           expect(response).to redirect_to oven_path(oven)
-        end
-
-        it "assigns valid cookie parameters" do
-          the_request
-          expect(Cookie.last.fillings).to eq(cookie_params[:fillings])
         end
       end
 
