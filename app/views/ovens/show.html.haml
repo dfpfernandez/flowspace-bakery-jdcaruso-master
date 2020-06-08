@@ -1,10 +1,22 @@
-%h3= @oven.name
+.oven-desktop
+  %h3= @oven.name
 
-- @oven.cookies.each do |cookie|
-  .cookie-info{ data: { cookie_id: cookie.id } }
-    = render partial: 'cookie_info', locals: { cookie: cookie }
+  - @oven.cookies.each do |cookie|
+    .cookie-info{ data: { cookie_id: cookie.id } }
+      = render partial: 'cookie_info', locals: { cookie: cookie }
 
-%br
-= button_to "Retrieve Cookie", empty_oven_path(@oven), class: 'empty-oven button tiny hide'
+  %br
+  = button_to "Retrieve Cookie", empty_oven_path(@oven), class: 'empty-oven button tiny hide'
 
-= link_to "Prepare Cookie", new_oven_cookies_path(@oven), class: 'button'
+  = link_to "Prepare Cookie", new_oven_cookies_path(@oven), class: 'button'
+
+.oven-mobile
+  %h3= @oven.name
+
+  = link_to "Prepare Cookie", new_oven_cookies_path(@oven), class: 'button'
+  - @oven.cookies.each do |cookie|
+    .cookie-info{ data: { cookie_id: cookie.id } }
+      = render partial: 'cookie_info', locals: { cookie: cookie }
+
+  %br
+  = button_to "Retrieve Cookie", empty_oven_path(@oven), class: 'empty-oven button tiny hide'
