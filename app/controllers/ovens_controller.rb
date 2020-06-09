@@ -6,7 +6,7 @@ class OvensController < ApplicationController
   end
 
   def show
-    @oven = current_user.ovens.find_by!(id: params[:id])
+    @oven = current_user.ovens.includes(:cookies).find_by!(id: params[:id])
   end
 
   def empty
